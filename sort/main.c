@@ -15,9 +15,9 @@ int main() {
 
   for (; n <= step * steps; n += step) {
 
-    int *radix_arr = (int *)malloc(sizeof(int) * n);
-    int *quick_arr = (int *)malloc(sizeof(int) * n);
-    int *oddEven_arr = (int *)malloc(sizeof(int) * n);
+    uint32_t *radix_arr = (uint32_t *)malloc(sizeof(uint32_t) * n);
+    uint32_t *quick_arr = (uint32_t *)malloc(sizeof(uint32_t) * n);
+    uint32_t *oddEven_arr = (uint32_t *)malloc(sizeof(uint32_t) * n);
 
     for (int i = 0; i < n; i++) {
       int tmp = getrand(min_rand, max_rand);

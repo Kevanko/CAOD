@@ -12,7 +12,7 @@ double wtime() {
 
 // radixSort
 //  Функция для поиска максимального числа в массиве
-int getMax(int arr[], int n) {
+int getMax(uint32_t arr[], int n) {
   int max = arr[0];
   for (int i = 1; i < n; i++) {
     if (arr[i] > max) {
@@ -22,8 +22,8 @@ int getMax(int arr[], int n) {
   return max;
 }
 // Функция для сортировки массива по цифре
-void countSort(int arr[], int n, int exp) {
-  int *output = (int *)malloc(sizeof(int) * n);
+void countSort(uint32_t arr[], int n, int exp) {
+  uint32_t *output = (uint32_t *)malloc(sizeof(uint32_t) * n);
   int i, count[10] = {0};
 
   // Считаем количество вхождений каждой цифры
@@ -50,7 +50,7 @@ void countSort(int arr[], int n, int exp) {
 }
 
 // Функция для сортировки массива по разрядам
-void radixSort(int arr[], int n) {
+void radixSort(uint32_t arr[], int n) {
   int m = getMax(arr, n);
 
   // Сортировка по цифрам
@@ -60,13 +60,13 @@ void radixSort(int arr[], int n) {
 }
 
 // Quick Sort
-void swap(int *a, int *b) {
+void swap(uint32_t *a, uint32_t *b) {
   int t = *a;
   *a = *b;
   *b = t;
 }
 
-int partition(int arr[], int low, int high) {
+int partition(uint32_t arr[], int low, int high) {
   int pivot = arr[high];
   int i = (low - 1);
 
@@ -80,7 +80,7 @@ int partition(int arr[], int low, int high) {
   return (i + 1);
 }
 
-void quickSort(int arr[], int low, int high) {
+void quickSort(uint32_t arr[], int low, int high) {
   if (low < high) {
     int pivot = partition(arr, low, high);
 
@@ -90,7 +90,7 @@ void quickSort(int arr[], int low, int high) {
 }
 
 // Odd-Even Sort
-void oddEvenSort(int arr[], int n) {
+void oddEvenSort(uint32_t arr[], int n) {
   int sorted = 0;
   while (!sorted) {
     sorted = 1;
