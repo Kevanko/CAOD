@@ -2,6 +2,7 @@
 *.d
 # Exit files
 *.dat
+main
 
 # Object files
 *.o
