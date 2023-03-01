@@ -1,6 +1,7 @@
 #include "functions.c"
 
 int main() {
+  int PrintArrays = 0;
   int step = 50000;
   int steps = 20;
   int n = step;
@@ -25,27 +26,26 @@ int main() {
       oddEven_arr[i] = tmp;
     }
 
-    clock_t start;
+    double start;
     double func_time[3] = {0.f, 0.f, 0.f};
 
-    start = clock();
+    start = wtime();
     radixSort(radix_arr, n);
-    func_time[0] = ((double)(clock() - start) / 1000);
+    func_time[0] = wtime() - start;
 
-    start = clock();
+    start = wtime();
     quickSort(quick_arr, 0, n - 1);
-    func_time[1] = ((double)(clock() - start) / 1000);
+    func_time[1] = wtime() - start;
 
-    start = clock();
+    start = wtime();
     oddEvenSort(oddEven_arr, n);
-    func_time[2] = ((double)(clock() - start) / 1000);
-
-    // printf("\nRadixSort\tQuickSort\tNoddEvenSort: \n");
-    // for (int i = 0; i < n; i++) {
-    //     printf("%d\t\t%d\t\t%d \n", radix_arr[i], quick_arr[i],
-    //     oddEven_arr[i]);
-    // }
-
+    func_time[2] = wtime() - start;
+    if (PrintArrays) {
+      printf("\nRadixSort\tQuickSort\tNoddEvenSort: \n");
+      for (int i = 0; i < n; i++) {
+        printf("%d\t\t%d\t\t%d \n", radix_arr[i], quick_arr[i], oddEven_arr[i]);
+      }
+    }
     printf("%d\t\t%f\t%f\t%f \n", n, func_time[0], func_time[1], func_time[2]);
     size_str = strlen(result_str);
     sprintf(result_str + size_str, "%d\t\t%f\t%f\t%f \n", n, func_time[0],
