@@ -1,5 +1,7 @@
 # Prerequisites
 *.d
+# Exit files
+*.dat
 
 # Object files
 *.o
